@@ -1,0 +1,79 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "market"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "./assets/fonts/fontawesome-webfont3e6e.eot",
+        "./assets/fonts/fontawesome-webfont3e6e.html",
+        "./assets/fonts/fontawesome-webfont3e6e.svg",
+        "./assets/fonts/fontawesome-webfont3e6e.ttf",
+        "./assets/fonts/fontawesome-webfont3e6e.woff",
+        "./assets/fonts/fontawesome-webfontd41d.eot",
+        "./assets/fonts/icofont7858.eot",
+        "./assets/fonts/icofont7858.svg",
+        "./assets/fonts/icofont7858.ttf",
+        "./assets/fonts/icofont7858.woff",
+        "./assets/fonts/icomoon.eot",
+        "./assets/fonts/icomoon.svg",
+        "./assets/fonts/icomoon.ttf",
+        "./assets/fonts/icomoon.woff",
+        "./assets/fonts/icomoond41d.eot",
+        "styles.css",
+        "../node_modules/ngx-toastr/toastr.css"
+      ],
+      "scripts": [
+        "./assets/js/plugins.min.js",
+        "./assets/js/common.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {}
+  }
+}

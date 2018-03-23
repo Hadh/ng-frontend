@@ -1,0 +1,36 @@
+<div *ngIf="!isUserLoggedIn">
+  <!-- navbar not logged in -->
+  <div id="header-fix" class="header fixed-top ">
+      <div class='headerWrapper'>
+          <div class='line'></div>
+          <div class='mobileNav' data-behavior='toggle-headNav'>
+          <div class='betaburger'>
+          <div class='betaburger__ingredients'></div>
+          </div>
+          </div>
+          <nav class='headerNav' data-headroom>
+          <ul class='headerNav__start'>
+          <li class='headerNav__link headerNav__link--logo' data-behavior='navigation-essential'>
+              <a href="#">
+                  <img src="./assets/images/market.png" alt="" class="img-fluid" />
+                </a>
+          <a href="index.html">
+          </a></li>
+          <li class='headerNav__link'><a routerLink="/">Home</a></li>
+          <li class='headerNav__link'><a routerLink="categories">Categories</a></li>
+          <li class='headerNav__link'><a routerLink="projects"> Projects</a></li>
+          <li class='headerNav__link'><a routerLink="contact">Contact</a></li>
+
+          </ul>
+          <ul class='headerNav__end'>
+            <li *ngIf="userService.loggedIn()" class='headerNav__link headerNav__link--button'><a routerLink="profile">My Profile</a></li>
+            <li *ngIf="userService.loggedIn()" class='headerNav__link headerNav__link--button'><a (click)="Logout()" routerLink="/">Logout</a></li>  
+            <li *ngIf="!userService.loggedIn()" class='headerNav__link headerNav__link--button'><a routerLink="login">Login</a></li>
+            <li *ngIf="!userService.loggedIn()" class='headerNav__link headerNav__link--button'><a routerLink="signup">Sign in as an Investor</a></li>
+         
+        </ul>
+          </nav>
+          </div>
+  </div>
+  <!--End navbar not logged in -->
+</div>
