@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
+import { CategoryService } from './services/category.service';
 import { ValidateService } from './services/validate.service';
 
 import { AppComponent } from './app.component';
@@ -46,7 +47,7 @@ import { VerifyComponent } from './verify/verify.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [UserService,ValidateService,AuthGuard],
+  providers: [UserService,ValidateService,AuthGuard, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

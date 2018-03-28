@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from '../services/category.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-categories',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor() { }
+  categories:any;
 
-  ngOnInit() {
+  constructor(
+    private router:Router,
+    private categoryService:CategoryService,
+    private toastr: ToastrService
+  ) { }
+
+ngOnInit(){
+  this.getCategories();
+}
+
+  getCategories() {
+    this.categoryService.getCategories().subscribe((categories:any) => {
+      console.log("halezrhml")
+      this.categories = categories;
+      console.log(categories)
+    }, err => {
+      console.log(err);
+    });
   }
 
 }
