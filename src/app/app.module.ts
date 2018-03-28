@@ -20,6 +20,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { AuthGuard } from './auth.guard';
+import { VerifyComponent } from './verify/verify.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { FooterComponent } from './footer/footer.component';
     SignUpComponent,
     ProfileComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import { FooterComponent } from './footer/footer.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [UserService,ValidateService],
+  providers: [UserService,ValidateService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

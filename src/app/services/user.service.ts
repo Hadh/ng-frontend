@@ -33,6 +33,13 @@ export class UserService {
     return this.http.post(this.rootUrl+'/register',body, this.httpOptions)
   }
 
+  verifyUser(token: String){
+    const body = {
+      secretToken:token
+    };
+    return this.http.post(this.rootUrl+'/verify',body, this.httpOptions)
+  }
+
   userAuthentification(email, password){
     var data = {
       email: email,

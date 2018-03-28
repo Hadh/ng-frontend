@@ -8,6 +8,9 @@ import { CategoriesComponent }  from './categories/categories.component';
 import { SignUpComponent }  from './sign-up/sign-up.component';
 import { ProfileComponent }  from './profile/profile.component';
 import { LoginComponent }  from './login/login.component';
+import { VerifyComponent } from './verify/verify.component';
+
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -18,7 +21,8 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate:[AuthGuard] },
+  { path: 'verify', component: VerifyComponent },
 ];
 
 @NgModule({

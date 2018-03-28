@@ -28,7 +28,7 @@ export class SignUpComponent implements OnInit {
       console.log(data)
       if(data.success == true){
         this.resetForm(form);
-        this.toastr.success('Awesome!',data.msg+' You can now login', {
+        this.toastr.success('Awesome!',data.msg+' Verify Your Account', {
           timeOut: 4000,
         });
         this.router.navigate(['/']);

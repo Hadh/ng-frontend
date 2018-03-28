@@ -10,7 +10,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NavbarComponent implements OnInit {
 
-  @Input() public isUserLoggedIn: boolean;
   constructor(
     private router:Router,
     private userService:UserService,
