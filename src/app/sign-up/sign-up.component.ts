@@ -45,7 +45,9 @@ export class SignUpComponent implements OnInit {
     this.user = {
       name:'',
       address:'',
-      birth_date:null,
+      city:'',
+      zipcode:0,
+      phone:0,
       email:'',
       username:'',
       password:'',
@@ -63,3 +65,4 @@ export class SignUpComponent implements OnInit {
    }
  }
 }
+

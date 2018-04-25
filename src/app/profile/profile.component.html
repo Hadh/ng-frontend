@@ -12,7 +12,7 @@
                     <div class="media d-block d-sm-flex text-sm-left text-center"> <img src="./assets/images/profile-4.png" class="img-fluid d-sm-flex mr-0 mr-sm-4 border border-white lis-border-width-4 rounded mb-4 mb-md-0" alt="" />
                         <div class="media-body align-self-center">
                             <h5 class="text-white lis-font-weight-500 lis-line-height-1">{{user.name}}</h5>
-                            <p class="mb-0">Project Owner/ Investor / {{user.email}}</p>
+                            <p class="mb-0">Membre depuis {{user.created_at | date :  "dd.MM.y"}} </p>
                         </div>
                     </div>
                 </a>
@@ -28,13 +28,13 @@
             <div class="col-12 col-xl-9 order-xl-1 order-2 text-xl-right text-center">
                 <ul class="nav nav-pills flex-column flex-sm-row lis-font-poppins" id="myTab" role="tablist">
                     <li class="nav-item ml-0"> <a class="nav-link lis-light py-4 lis-relative mr-3 active" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-expanded="true"> Profile</a> </li>
-                    <li class="nav-item ml-0"> <a class="nav-link lis-light py-4 lis-relative mr-3" data-toggle="tab" href="#listing" role="tab" aria-controls="listing"> My Listings</a> </li>
-                    <li class="nav-item ml-0"> <a class="nav-link lis-light py-4 lis-relative mr-3" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews">Reviews </a> </li>
-                    <li class="nav-item ml-0"> <a class="nav-link lis-light py-4 lis-relative" data-toggle="tab" href="#bookmark" role="tab" aria-controls="bookmark"> Bookmarks</a> </li>
+                    <li class="nav-item ml-0"> <a class="nav-link lis-light py-4 lis-relative mr-3" data-toggle="tab" href="#listing" role="tab" aria-controls="listing"> My Projects</a> </li>
+                    <li class="nav-item ml-0"> <a class="nav-link lis-light py-4 lis-relative mr-3" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews">My Investments </a> </li>
+                    <li class="nav-item ml-0"> <a class="nav-link lis-light py-4 lis-relative" data-toggle="tab" href="#bookmark" role="tab" aria-controls="bookmark"> Edit Profile</a> </li>
                 </ul>
             </div>
             <div class="col-12 col-xl-3 align-self-center order-xl-2 order-1 text-xl-right text-center mt-4 mt-xl-0">
-                <a href="#" class="btn btn-primary btn-default"> <i class="fa fa-plus pr-1"></i> Add Listing</a>
+                <a routerLink='/add-project' class="btn btn-primary btn-default"> <i class="fa fa-plus pr-1"></i> Add Project</a>
             </div>
         </div>
     </div>
@@ -58,8 +58,7 @@
                                         <dl class="row my-2 lis-line-height-2"> <dt class="col-xl-3 col-md-4 lis-font-weight-500 lis-dark">Address:</dt>
                                             <dd class="col-xl-9 col-md-8">FirstStreet, New York, USA</dd> <dt class="col-xl-3 col-md-4 lis-font-weight-500 lis-dark">Phone:</dt>
                                             <dd class="col-xl-9 col-md-8">+88 25 5894 2589</dd> <dt class="col-xl-3 col-md-4 lis-font-weight-500 lis-dark">Email:</dt>
-                                            <dd class="col-xl-9 col-md-8"><a href="#" class="lis-primary">example@domain.com</a></dd> <dt class="col-xl-3 col-md-4 lis-font-weight-500 lis-dark">Website</dt>
-                                            <dd class="col-xl-9 col-md-8"><a href="http://www.themeforest.net/" target="blank" class="lis-primary">http://www.themeforest.net</a></dd>
+                                            <dd class="col-xl-9 col-md-8"><a href="#" class="lis-primary">{{user.email}}</a></dd> 
                                         </dl>
                                         <ul class="list-inline my-0">
                                             <li class="list-inline-item mr-0"><a href="#" class="lis-light lis-social border lis-brd-light text-center lis-line-height-2_3 rounded d-block"><i class="fa fa-facebook"></i></a></li>
@@ -72,27 +71,10 @@
                                 </div>
                             </div>
                         </div>
-                        <h6 class="lis-font-weight-500"><i class="fa fa-align-left pr-2 lis-f-14"></i> Biography</h6>
-                        <div class="card lis-brd-light wow fadeInUp">
-                            <div class="card-body p-4">
-                                <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-                                <p class="pt-3 mb-0">Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Maecenas nec odio et ante tincidunt tempus.</p>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="col-12 col-lg-4">
-                        <h6 class="lis-font-weight-500"><i class="fa fa-star pr-2 lis-f-14"></i> Ratings</h6>
-                        <div class="card lis-brd-light wow fadeInUp mb-4">
-                            <div class="card-body p-4">
-                                <ul class="list-inline mb-0 lis-light-gold font-weight-normal h4">
-                                    <li class="list-inline-item"><i class='fa fa-star'></i></li>
-                                    <li class="list-inline-item"><i class='fa fa-star'></i></li>
-                                    <li class="list-inline-item"><i class='fa fa-star'></i></li>
-                                    <li class="list-inline-item"><i class='fa fa-star-o'></i></li>
-                                    <li class="list-inline-item"><i class='fa fa-star-o'></i></li>
-                                    <li class="list-inline-item"> 3.0</li>
-                                </ul> <small>2.77 average based on 19184 ratings</small> </div>
-                        </div>
+
                         <h6 class="lis-font-weight-500"><i class="fa fa-envelope pr-2 lis-f-14"></i>  Send Message</h6>
                         <div class="card lis-brd-light wow fadeInUp">
                             <div class="card-body p-4">
@@ -114,10 +96,10 @@
             </div>
             <div class="tab-pane fade" id="listing" role="tabpanel" aria-labelledby="listing">
                 <div class="row portfolio-box2">
-                    <div class="post col-12 col-md-6 col-lg-6 col-xl-4 wow fadeInUp mb-4">
-                        <div class="card lis-brd-light text-center text-lg-left">
+                    <div *ngFor="let project of userProjects" class="col-12 col-md-6 col-lg-6 col-xl-4 mb-4">
+                        <div class="card lis-brd-light wow fadeInUp text-center text-lg-left">
                             <a href="#">
-                                <div class="lis-grediant grediant-tb-light2 lis-relative modImage rounded-top"> <img src="./assets/images/img5.jpg" alt="" class="img-fluid rounded-top w-100" /> </div>
+                                <div class="lis-grediant grediant-tb-light2 lis-relative modImage lis-radius rounded-top"> <img src="./assets/images/img5.jpg" alt="" class="img-fluid rounded-top w-100" /> </div>
                                 <div class="lis-absolute lis-right-20 lis-top-20">
                                     <div class="lis-post-meta border border-white text-white rounded lis-f-14">Open</div>
                                 </div>
@@ -125,218 +107,26 @@
                             <div class="card-body pt-0">
                                 <div class="media d-block d-lg-flex lis-relative"> <img src="./assets/images/card-logo5.png" alt="" class="lis-mt-minus-15 img-fluid d-lg-flex mx-auto mr-lg-3 mb-4 mb-lg-0 border lis-border-width-2 rounded-circle border-white" width="80" />
                                     <div class="media-body align-self-start mt-2">
-                                        <h6 class="mb-0 lis-font-weight-600"><A href="#" class="lis-dark">Vintage Italian Beer Bar & Restaurant</A></h6> </div>
+                                        <h6 class="mb-0 lis-font-weight-600"><A href="#" class="lis-dark">{{project.name}}</A></h6>
+                                          <p>By: {{project.owner.username}}</p>
+                                      </div>
                                 </div>
                                 <ul class="list-unstyled my-4 lis-line-height-2">
-                                    <li><i class="fa fa-phone pr-2"></i> +88 25 5894 2589</li>
-                                    <li><i class="fa fa-map-o pr-2"></i> First Street, New York, USA</li>
+                                    <li><i class="fa fa-list pr-2"></i> {{project.category}}</li>
+                                    <li><i class="fa fa-money pr-2"></i> {{project.fundraiser | currency :'TND'}}</li>
                                 </ul>
                                 <div class="clearfix">
                                     <div class="float-none float-lg-left mb-3 mb-lg-0 mt-1">
-                                        <A href="#" class="text-white"><i class="icofont icofont-travelling px-2 lis-bg5 py-2 lis-rounded-circle-50 lis-f-14"></i></A>
-                                        <A href="#" class="lis-id-info lis-light p-2 lis-rounded-circle-50 lis-f-14">1 More...</A> </div>
+                                        <A href="#" class="lis-id-info lis-light p-2 lis-rounded-circle-50 lis-f-14">Click To See Full Description</A> </div>
                                     <div class="float-none float-lg-right mt-1">
-                                        <A href="#" class="lis-light lis-f-14"><i class="fa fa-envelope-o lis-id-info  lis-rounded-circle-50 text-center"></i></A>
-                                        <A href="#" class="lis-light lis-f-14"><i class="fa fa-heart-o lis-id-info  lis-rounded-circle-50 text-center"></i></A>
-                                        <A href="#" class="lis-green-light text-white p-2 lis-rounded-circle-50 lis-f-14"><i class="fa fa-star"></i> 4.0</A> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post col-12 col-md-6 col-lg-6 col-xl-4  wow fadeInUp mb-4">
-                        <div class="card lis-brd-light bg-transparent">
-                            <a href="#">
-                                <div class="modImage lis-grediant grediant-tb-light2 lis-relative rounded-top"> <img src="./assets/images/img6.jpg" alt="" class="img-fluid rounded-top w-100"> </div>
-                                <div class="lis-absolute lis-right-20 lis-top-20">
-                                    <div class="lis-post-meta border border-white text-white rounded lis-f-14">Oct 18-20</div>
-                                </div>
-                            </a>
-                            <div class="card-body">
-                                <div class="media d-block d-sm-flex text-center text-sm-left">
-                                    <div class="d-block d-sm-flex">
-                                        <ul class="list-unstyled my-0">
-                                            <li class="lis-font-weight-600 mb-2"><a href="#" class="lis-dark">Enchanted Valley Carnival</a></li>
-                                            <li><i class="fa fa-map-o pr-2"></i> Bishop Avenue, New York</li>
-                                        </ul>
-                                    </div>
-                                    <div class="media-body align-self-center text-center text-sm-right mt-3 mt-sm-0"> <a href="#" class="lis-light lis-f-14" tabindex="0"><i class="fa fa-heart-o lis-id-info  lis-rounded-circle-50 text-center"></i></a> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post col-12 col-md-6 col-lg-6 col-xl-4  wow fadeInUp mb-4">
-                        <div class="card lis-brd-light text-center text-lg-left">
-                            <a href="#">
-                                <div class="lis-grediant grediant-tb-light2 lis-relative modImage rounded-top"> <img src="./assets/images/img2.jpg" alt="" class="img-fluid rounded-top w-100"> </div>
-                                <div class="lis-absolute lis-right-20 lis-top-20">
-                                    <div class="lis-post-meta border border-white text-white rounded lis-f-14">Closed</div>
-                                </div>
-                            </a>
-                            <div class="card-body pt-0">
-                                <div class="media d-block d-lg-flex lis-relative"> <img src="./assets/images/card-logo2.png" alt="" class="lis-mt-minus-15 img-fluid d-lg-flex mx-auto mr-lg-3 mb-4 mb-lg-0 border lis-border-width-2 rounded-circle border-white" width="80">
-                                    <div class="media-body align-self-start mt-2">
-                                        <h6 class="mb-0 lis-font-weight-600"><a href="#" class="lis-dark" tabindex="0">Bodega Garage - Filipino Night Club</a></h6> </div>
-                                </div>
-                                <ul class="list-unstyled my-4 lis-line-height-2">
-                                    <li><i class="fa fa-phone pr-2"></i> +88 25 5894 2589</li>
-                                    <li><i class="fa fa-map-o pr-2"></i> First Street, New York, USA</li>
-                                </ul>
-                                <div class="clearfix">
-                                    <div class="float-none float-lg-left mb-3 mb-lg-0 mt-1"> <a href="#" class="text-white" tabindex="0"><i class="icofont icofont-radio-mic px-2 lis-bg3 py-2 lis-rounded-circle-50 lis-f-14"></i></a> <a href="#" class="text-white" tabindex="0"><i class="icofont icofont-beer px-2 lis-bg2 py-2 lis-rounded-circle-50 lis-f-14"></i></a> <a href="#" class="lis-id-info lis-light p-2 lis-rounded-circle-50 lis-f-14" tabindex="0">1 More...</a> </div>
-                                    <div class="float-none float-lg-right mt-1"> <a href="#" class="lis-light lis-f-14" tabindex="0"><i class="fa fa-envelope-o lis-id-info  lis-rounded-circle-50 text-center"></i></a> <a href="#" class="lis-light lis-f-14" tabindex="0"><i class="fa fa-heart-o lis-id-info  lis-rounded-circle-50 text-center"></i></a> <a href="#" class="lis-green-light text-white p-2 lis-rounded-circle-50 lis-f-14" tabindex="0"><i class="fa fa-star"></i> 5.0</a> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post col-12 col-md-6 col-lg-6 col-xl-4  wow fadeInUp mb-4">
-                        <div class="card lis-brd-light">
-                            <a href="#">
-                                <div class="modImage lis-grediant grediant-tb-light2 lis-relative rounded-top"> <img src="./assets/images/img9.jpg" alt="" class="img-fluid rounded-top w-100"> </div>
-                                <div class="lis-absolute lis-right-20 lis-top-20">
-                                    <div class="lis-post-meta border border-white text-white rounded lis-f-14">For Sale</div>
-                                </div>
-                            </a>
-                            <div class="card-body">
-                                <h6 class="lis-font-weight-600 mb-2"><a href="#" class="lis-dark">Villa in Melbourne City</a></h6>
-                                <ul class="list-unstyled mt-0">
-                                    <li><i class="fa fa-map-o pr-2"></i>1903 Hollywood, NJ 85624, USA</li>
-                                </ul>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <h5 class="lis-primary mb-0"><span class="lis-f-14 lis-dark">Price:</span> $13,80,000 </h5> </div>
-                                    <div class="media-body align-self-center text-right"> <a href="#" class="lis-light lis-f-14"><i class="fa fa-heart-o lis-id-info  lis-rounded-circle-50 text-center"></i></a> </div>
-                                </div>
-                            </div>
-                            <div class="lis-devider"></div>
-                            <ul class="list-inline mb-0 text-center lis-property-meta">
-                                <li class="list-inline-item lis-brd-right lis-brd-light lis-meta-block float-left"><i class="fa fa-object-group pr-1"></i> 5842 m2</li>
-                                <li class="list-inline-item lis-brd-right lis-brd-light lis-meta-block float-left"><i class="fa fa-bed pr-1"></i> 4 Bed</li>
-                                <li class="list-inline-item lis-meta-block float-left"><i class="fa fa-bath pr-1"></i> 3 Bath</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="post col-12 col-md-6 col-lg-6 col-xl-4 wow fadeInUp mb-4">
-                        <div class="card lis-brd-light">
-                            <a href="#">
-                                <div class="modImage lis-grediant grediant-tb-light2 lis-relative rounded-top"> <img src="./assets/images/img10.jpg" alt="" class="img-fluid rounded-top w-100"> </div>
-                                <div class="lis-absolute lis-right-20 lis-top-20">
-                                    <div class="lis-post-meta border border-white text-white rounded lis-f-14">For Rent</div>
-                                </div>
-                            </a>
-                            <div class="card-body">
-                                <h6 class="lis-font-weight-600 mb-2"><a href="#" class="lis-dark">Family House in Omaha</a></h6>
-                                <ul class="list-unstyled mt-0">
-                                    <li><i class="fa fa-map-o pr-2"></i>15421 Southwest, NJ 32568, USA</li>
-                                </ul>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <h5 class="lis-primary mb-0"><span class="lis-f-14 lis-dark">Price:</span> $2,500 <small class="lis-light">/month</small> </h5> </div>
-                                    <div class="media-body align-self-center text-right"> <a href="#" class="lis-light lis-f-14"><i class="fa fa-heart-o lis-id-info  lis-rounded-circle-50 text-center"></i></a> </div>
-                                </div>
-                            </div>
-                            <div class="lis-devider"></div>
-                            <ul class="list-inline mb-0 text-center lis-property-meta">
-                                <li class="list-inline-item lis-brd-right lis-brd-light lis-meta-block float-left"><i class="fa fa-object-group pr-1"></i> 2018 m2</li>
-                                <li class="list-inline-item lis-brd-right lis-brd-light lis-meta-block float-left"><i class="fa fa-bed pr-1"></i> 2 Bed</li>
-                                <li class="list-inline-item lis-meta-block float-left"><i class="fa fa-bath pr-1"></i> 1 Bath</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="post col-12 col-md-6 col-lg-6 col-xl-4  wow fadeInUp mb-4">
-                        <div class="card lis-brd-light bg-transparent">
-                            <a href="#">
-                                <div class="modImage lis-grediant grediant-tb-light2 lis-relative rounded-top"> <img src="./assets/images/img8.jpg" alt="" class="img-fluid rounded-top w-100"> </div>
-                                <div class="lis-absolute lis-right-20 lis-top-20">
-                                    <div class="lis-post-meta border border-white text-white rounded lis-f-14">Dec 28-31</div>
-                                </div>
-                            </a>
-                            <div class="card-body">
-                                <div class="media d-block d-sm-flex text-center text-sm-left">
-                                    <div class="d-block d-sm-flex">
-                                        <ul class="list-unstyled my-0">
-                                            <li class="lis-font-weight-600 mb-2"><a href="#" class="lis-dark">VH1 Supersonic 2018</a></li>
-                                            <li><i class="fa fa-map-o pr-2"></i> Bishop Avenue, New York</li>
-                                        </ul>
-                                    </div>
-                                    <div class="media-body align-self-center text-center text-sm-right mt-3 mt-sm-0"> <a href="#" class="lis-light lis-f-14" tabindex="0"><i class="fa fa-heart-o lis-id-info  lis-rounded-circle-50 text-center"></i></a> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post col-12 col-md-6 col-lg-6 col-xl-4  wow fadeInUp mb-4 mb-xl-0">
-                        <div class="card lis-brd-light text-center text-lg-left">
-                            <a href="#">
-                                <div class="lis-grediant grediant-tb-light2 lis-relative modImage rounded-top"> <img src="./assets/images/img3.jpg" alt="" class="img-fluid rounded-top w-100"> </div>
-                                <div class="lis-absolute lis-right-20 lis-top-20">
-                                    <div class="lis-post-meta border border-white text-white rounded lis-f-14">Open</div>
-                                </div>
-                            </a>
-                            <div class="card-body pt-0">
-                                <div class="media d-block d-lg-flex lis-relative"> <img src="./assets/images/card-logo3.png" alt="" class="lis-mt-minus-15  img-fluid d-lg-flex mx-auto mr-lg-3 mb-4 mb-lg-0 border lis-border-width-2 rounded-circle border-white" width="80">
-                                    <div class="media-body align-self-start mt-2">
-                                        <h6 class="mb-0 lis-font-weight-600"><a href="#" class="lis-dark" tabindex="0">Regal Cinemas Destiny USA 19 IMAX &amp; RPX</a></h6> </div>
-                                </div>
-                                <ul class="list-unstyled my-4 lis-line-height-2">
-                                    <li><i class="fa fa-phone pr-2"></i> +88 25 5894 2589</li>
-                                    <li><i class="fa fa-map-o pr-2"></i> First Street, New York, USA</li>
-                                </ul>
-                                <div class="clearfix">
-                                    <div class="float-none float-lg-left mb-3 mb-lg-0 mt-1"> <a href="#" class="text-white" tabindex="0"><i class="icofont icofont-radio-mic px-2 lis-bg3 py-2 lis-rounded-circle-50 lis-f-14"></i></a> <a href="#" class="lis-id-info lis-light p-2 lis-rounded-circle-50 lis-f-14" tabindex="0">1 More...</a> </div>
-                                    <div class="float-none float-lg-right mt-1"> <a href="#" class="lis-light lis-f-14" tabindex="0"><i class="fa fa-envelope-o lis-id-info  lis-rounded-circle-50 text-center"></i></a> <a href="#" class="lis-light lis-f-14" tabindex="0"><i class="fa fa-heart-o lis-id-info  lis-rounded-circle-50 text-center"></i></a> <a href="#" class="lis-green-light text-white p-2 lis-rounded-circle-50 lis-f-14" tabindex="0"><i class="fa fa-star"></i> 4.5</a> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post col-12 col-md-6 col-lg-6 col-xl-4 wow fadeInUp mb-4 mb-xl-0">
-                        <div class="card lis-brd-light">
-                            <a href="#">
-                                <div class="modImage lis-grediant grediant-tb-light2 lis-relative rounded-top"> <img src="./assets/images/img11.jpg" alt="" class="img-fluid rounded-top w-100"> </div>
-                                <div class="lis-absolute lis-right-20 lis-top-20">
-                                    <div class="lis-post-meta border border-white text-white rounded lis-f-14">For Rent</div>
-                                </div>
-                            </a>
-                            <div class="card-body">
-                                <h6 class="lis-font-weight-600 mb-2"><a href="#" class="lis-dark">Park Avenue Apartment </a></h6>
-                                <ul class="list-unstyled mt-0">
-                                    <li><i class="fa fa-map-o pr-2"></i>14228 Townshire Drive, NJ 06589, USA</li>
-                                </ul>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <h5 class="lis-primary mb-0"><span class="lis-f-14 lis-dark">Price:</span> $3,100 <small class="lis-light">/month</small> </h5> </div>
-                                    <div class="media-body align-self-center text-right"> <a href="#" class="lis-light lis-f-14"><i class="fa fa-heart-o lis-id-info  lis-rounded-circle-50 text-center"></i></a> </div>
-                                </div>
-                            </div>
-                            <div class="lis-devider"></div>
-                            <ul class="list-inline mb-0 text-center lis-property-meta">
-                                <li class="list-inline-item lis-brd-right lis-brd-light lis-meta-block float-left"><i class="fa fa-object-group pr-1"></i> 3258 m2</li>
-                                <li class="list-inline-item lis-brd-right lis-brd-light lis-meta-block float-left"><i class="fa fa-bed pr-1"></i> 4 Bed</li>
-                                <li class="list-inline-item lis-meta-block float-left"><i class="fa fa-bath pr-1"></i> 2 Bath</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="post col-12 col-md-6 col-lg-6 col-xl-4  wow fadeInUp">
-                        <div class="card lis-brd-light bg-transparent">
-                            <a href="#">
-                                <div class="modImage lis-grediant grediant-tb-light2 lis-relative rounded-top"> <img src="./assets/images/img7.jpg" alt="" class="img-fluid rounded-top w-100"> </div>
-                                <div class="lis-absolute lis-right-20 lis-top-20">
-                                    <div class="lis-post-meta border border-white text-white rounded lis-f-14">Nov 13-15</div>
-                                </div>
-                            </a>
-                            <div class="card-body">
-                                <div class="media d-block d-sm-flex text-center text-sm-left">
-                                    <div class="d-block d-sm-flex">
-                                        <ul class="list-unstyled my-0">
-                                            <li class="lis-font-weight-600 mb-2"><a href="#" class="lis-dark">Timeout 72 Hours</a></li>
-                                            <li><i class="fa fa-map-o pr-2"></i> North Street, New York, USA</li>
-                                        </ul>
-                                    </div>
-                                    <div class="media-body align-self-center text-center text-sm-right mt-3 mt-sm-0"> <a href="#" class="lis-light lis-f-14" tabindex="0"><i class="fa fa-heart-o lis-id-info  lis-rounded-circle-50 text-center"></i></a> </div>
+                                        <A href="#" class="lis-light lis-f-14">Score </A>
+                                        <A href="#" class="lis-green-light text-white p-2 lis-rounded-circle-50 lis-f-14"><i class="fa fa-star"></i> {{project.score.innovation + project.score.evolution + project.score.impexp}}</A> </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
             <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews">
                 <div class="row">
                     <div class="col-12">

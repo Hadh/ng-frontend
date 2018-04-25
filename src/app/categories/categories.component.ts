@@ -24,12 +24,19 @@ ngOnInit(){
 
   getCategories() {
     this.categoryService.getCategories().subscribe((categories:any) => {
-      console.log("halezrhml")
+      console.log("Categories Fetching done")
       this.categories = categories;
       console.log(categories)
     }, err => {
       console.log(err);
     });
   }
+
+  goTo(category_name:string){
+    console.log(category_name)
+    this.router.navigate(['categories/'+category_name])
+  }
+
+  
 
 }

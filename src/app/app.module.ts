@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { CategoryService } from './services/category.service';
+import { ProjectService } from './services/project.service';
 import { ValidateService } from './services/validate.service';
 
 import { AppComponent } from './app.component';
@@ -23,6 +24,12 @@ import { FooterComponent } from './footer/footer.component';
 
 import { AuthGuard } from './auth.guard';
 import { VerifyComponent } from './verify/verify.component';
+import { ProjectCategoryComponent } from './project-category/project-category.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { AddProjectComponent } from './add-project/add-project.component';
+
+
 
 @NgModule({
   declarations: [
@@ -37,7 +44,11 @@ import { VerifyComponent } from './verify/verify.component';
     ProfileComponent,
     LoginComponent,
     FooterComponent,
-    VerifyComponent
+    VerifyComponent,
+    ProjectCategoryComponent,
+    NotFoundComponent,
+    ProjectDetailsComponent,
+    AddProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +58,7 @@ import { VerifyComponent } from './verify/verify.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [UserService,ValidateService,AuthGuard, CategoryService],
+  providers: [UserService,ValidateService,AuthGuard, CategoryService,ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

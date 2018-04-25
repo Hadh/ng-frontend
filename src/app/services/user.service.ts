@@ -5,18 +5,20 @@ import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
 import { User } from '../models/user.model';
 import { ValidateService } from '../services/validate.service';
-import { tokenNotExpired } from 'angular2-jwt'
+import { tokenNotExpired } from 'angular2-jwt';
 
 
 @Injectable()
 export class UserService {
   readonly rootUrl = "http://localhost:3000/users";
+  readonly rootUrl2 = "http://localhost:3000/projects/user/";
   authToken:any;
   user:any;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
+
   constructor(private http:HttpClient,  private validateService: ValidateService) { }
 
   registerUser(user: User){
@@ -26,7 +28,9 @@ export class UserService {
       email: user.email,
       name: user.name,
       address : user.address,
-      birth_date: user.birth_date,
+      zipcode: user.zipcode,
+      city:user.city,
+      phone: user.phone,
       investor:false,
       admin:false
     }
@@ -76,5 +80,17 @@ export class UserService {
 
   loggedIn(){
     return tokenNotExpired('id_token');
+  }
+
+  getUserProjects(){
+    const user = JSON.parse(localStorage.getItem('user'));
+    const user_id = user.id;
+    let headers = new HttpHeaders({ 'Content-Type':'application/json'});
+    return this.http.get(this.rootUrl2+user_id, {headers:headers} )
+  }
+
+  getUser(){
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user;
   }
 }

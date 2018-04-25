@@ -5,20 +5,20 @@
             <div class="col-12 col-md-10 text-center">
                 <div class="heading pb-4">
                     <h5 class="lis-light">Find the best projects</h5>
-                    <h2 class="f-weight-500">Displaying all Category</h2> </div>
+                    <h2 class="f-weight-500">Displaying all Category</h2> 
+                </div>
             </div>
         </div>
         <div class="row">
-
             <div *ngFor="let cat of categories" class="col-12 col-sm-6 col-lg-3 mb-4 text-center wow fadeInUp">
-                <a href="#" class="text-white">
+                <div (click)="goTo(cat.name)" class="text-white">
                     <div class="lis-categories lis-bg1 rounded lis-font-poppins py-4">
-                        <div class="text-white mb-2 h2"><i class="icofont icofont-hotel-alt"></i></div> {{cat.name}}
-                        <div class="categories-listing lis-absolute lis-left-0 lis-right-0 invisible lis-font-roboto">Click to see Projects </div>
+                        <div class="text-white mb-2 h2"><i class="icofont icofont-hotel-alt"></i></div> 
+                        {{cat.name}}
+                        <div class="categories-listing lis-absolute lis-left-0 lis-right-0 invisible lis-font-roboto" >Click to see Projects  </div>
                     </div>
-                </a>
+                </div>
             </div>
-            
         </div>
     </div>
 </section>

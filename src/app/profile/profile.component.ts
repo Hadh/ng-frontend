@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProfileComponent implements OnInit {
   user:Object;
-
+  userProjects;
   constructor(
     private router:Router,
     private userService:UserService,
@@ -24,6 +24,18 @@ export class ProfileComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+
+    this.getUserProjects();
+  }
+
+  getUserProjects(){
+    this.userService.getUserProjects().subscribe((projects:any)=> {
+      console.log("projects retrieved");
+      console.log(projects);
+      this.userProjects = projects.projects;
+    }, err => {
+      console.log(err);
+    })
   }
 
 }

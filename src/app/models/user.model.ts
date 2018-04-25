@@ -1,7 +1,9 @@
 export class User {
     name:string;
     address:string;
-    birth_date:Date;
+    city:string;
+    zipcode:number;
+    phone:number;
     email:string;
     username:string;
     password:string;
