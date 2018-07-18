@@ -1,0 +1,223 @@
+
+<!-- Page Inner -->
+<section style=" background-image: url('./assets/images/asonha.png');" class="lis-bg-light pb-5">
+  <div class="container pt-5">
+      <div class="row wow fadeInUp">
+          <div class="col-12 col-sm-6">
+              <div class="page-title">
+                  <h2>Create a Project</h2>
+                  <p class="mb-0">Fill in the form to add your project</p>
+              </div>
+          </div>
+          <div class="col-12 col-sm-6 text-left text-sm-right">
+              <ol class="breadcrumb mb-0 pl-0 bg-transparent">
+                  <li class="breadcrumb-item d-inline-block float-none"><a href="#" class="lis-light">Home</a></li>
+                  <li class="breadcrumb-item d-inline-block float-none active">Add a Project</li>
+              </ol>
+          </div>
+          
+      </div>
+  </div>
+</section>
+<!--End Page Inner -->
+<!-- Pricing -->
+<section>
+  <div class="container">
+      <div class="row justify-content-center">
+
+        <div class="row">
+
+        
+          <div class="col-12 col-lg-4">
+
+              <div class="card lis-brd-light wow fadeInUp mb-4">
+                  <div class="card-body p-4">
+                    <ul style="list-style-type: disc;">
+                      <li><strong>Projects will be reviewed and if approved will be available for potential investors</strong></li>
+                      <li> All Fields marked with <strong style="color:red;" >(*)</strong> are mandatory</li>
+                    <li><strong>(!)</strong>: If project belongs to IT</li>
+                    </ul>
+                  </div>
+              </div>
+
+          </div>
+
+
+          <div class="col-12 col-lg-8 mb-5 mb-lg-0">
+        <form #projectForm="ngForm" (ngSubmit)= "OnSubmit(projectForm)">
+              <div class="card lis-brd-light wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                
+                  <div class="card-body p-0">
+                      <div class="row p-4">
+                          <div class="col-12 col-sm-12 mb-3">
+                              <h6 class="lis-font-weight-500"><i class="fa fa-align-left pr-2 lis-f-14"></i>  Project Description </h6>
+
+                          </div>
+                          <div class="col-12 col-sm-12">
+                              <div class="form-group row">
+                                  <label for="example-text-input" class="col-12 col-md-2 col-form-label">Name</label>
+                                  <div class="col-12 col-md-10">
+                                      <input class="form-control border-top-0 border-left-0 border-right-0 rounded-0" type="text" placeholder="Your project name"  #name="ngModel" [(ngModel)]="project.name" name="name"id="example-text-input" required>
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label for="example-text-input" class="col-12 col-md-2 col-form-label">Tagline</label>
+                                  <div class="col-12 col-md-10">
+                                      <input class="form-control border-top-0 border-left-0 border-right-0 rounded-0" type="text" placeholder="Say something catchy!"  #tagline="ngModel" [(ngModel)]="project.tagline" name="tagline"id="example-text-input" required>
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label for="example-text-input" class="col-12 col-md-2 col-form-label">Website</label>
+                                  <div class="col-12 col-md-10">
+                                      <input class="form-control border-top-0 border-left-0 border-right-0 rounded-0" type="text" placeholder="http://www.yourProject.com"  #website="ngModel" [(ngModel)]="project.website" name="website" id="example-text-input" required>
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="example-text-input" class="col-12 col-md-2 col-form-label">Github Account (!)</label>
+                                <div class="col-12 col-md-10">
+                                    <input class="form-control border-top-0 border-left-0 border-right-0 rounded-0" type="text" placeholder="http://www.github.com/user"  #github="ngModel" [(ngModel)]="project.github" name="github" id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-12 col-md-2 col-form-label">StackoverFlow Account (!)</label>
+                                <div class="col-12 col-md-10">
+                                    <input class="form-control border-top-0 border-left-0 border-right-0 rounded-0" type="text" placeholder="https://stackoverflow.com/users/ID"  #stack="ngModel" [(ngModel)]="project.stack" name="stack" id="example-text-input">
+                                </div>
+                            </div>
+                              <div class="form-group row">
+                                  <label for="example-text-input" class="col-12 col-md-2 col-form-label">Description</label>
+                                  <div class="col-12 col-md-10">
+                                      <textarea class="form-control border-top-0 border-left-0 border-right-0 rounded-0"
+                                      #description="ngModel" [(ngModel)]="project.description" name="description" placeholder="Type Project description"></textarea>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+                      <hr/>
+                      <div  class="row p-4">
+                          <div class="col-12 col-sm-12 mb-3">
+                              <h6 class="lis-font-weight-500"><i class="fa fa-tag pr-2 lis-f-14"></i>  Categories</h6>
+
+                          </div>
+                          <div class="col-12 col-sm-12">
+                              <div class="form-group row">
+                                  <label for="example-text-input" class="col-12 col-md-2 col-form-label">Categories</label>
+                                  <div class="col-12 col-md-10">
+                                       
+                                    <select  [(ngModel)]="project.category" #category="ngModel"   name="category" class="form-control border-top-0 border-left-0 border-right-0 rounded-0" id="inlineFormCustomSelect">
+                                          <option disabled selected>Select Category</option>
+                                          <option *ngFor="let cat of categoriesList" [ngValue]="cat.name"  >
+                                            {{cat.name}}
+                                          </option>
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <hr/>
+
+                      <div class="row p-4">
+                          <div class="col-12 col-sm-12 mb-3">
+                              <h6 class="lis-font-weight-500"><i class="fa fa-file-image-o pr-2 lis-f-14"></i> Images </h6>
+
+                          </div>
+                          <div class="col-12 col-sm-12">
+                              <div class="form-group row">
+                                  <label for="example-text-input" class="col-12 col-md-3 col-form-label">Logo</label>
+                                  <div class="col-12 col-md-9">
+                                      <input class="form-control border-0" (change)="onFileSelected1($event)" #logo="ngModel" [(ngModel)]="project.logo" name="logo"    type="file"  id="example-text-input">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label for="example-text-input" class="col-12 col-md-3 col-form-label">Cover Image</label>
+                                  <div class="col-12 col-md-9">
+                                      <input class="form-control border-0" #cover="ngModel" [(ngModel)]="project.cover" name="cover" (change)="onFileSelected2($event)" type="file"  id="example-text-input">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label for="example-text-input" class="col-12 col-md-3 col-form-label">Image 1</label>
+                                  <div class="col-12 col-md-9">
+                                      <input class="form-control border-0" #image1="ngModel" [(ngModel)]="project.image1" name="image1" (change)="onFileSelected3($event)" type="file"  id="example-text-input">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="example-text-input" class="col-12 col-md-3 col-form-label">Image 2</label>
+                                <div class="col-12 col-md-9">
+                                    <input class="form-control border-0"  #image2="ngModel" [(ngModel)]="project.image2" name="image2" (change)="onFileSelected4($event)" type="file"  id="example-text-input">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-12 col-md-3 col-form-label">Image 3</label>
+                                <div class="col-12 col-md-9">
+                                    <input class="form-control border-0"  #image3="ngModel" [(ngModel)]="project.image3" name="image3" (change)="onFileSelected5($event)" type="file"  id="example-text-input">
+                                </div>
+                            </div>
+
+
+                          </div>
+
+                      </div>
+                      <hr/>
+
+                      <div class="row p-4">
+                          <div class="col-12 col-sm-12 mb-3">
+                              <h6 class="lis-font-weight-500"><i class="fa fa-info-circle pr-2 lis-f-14"></i>  Financial information </h6>
+                          </div>
+                          <div class="col-12 col-sm-12">
+                              <div class="form-group row">
+                                  <label for="example-text-input" class="col-12 col-md-3 col-form-label">Fundraiser</label>
+                                  <div class="col-12 col-md-9">
+                                      <input class="form-control border-top-0 border-left-0 border-right-0 rounded-0" placeholder="Your estimated funraiser" type="number"  #fundraiser="ngModel" [(ngModel)]="project.fundraiser" name="fundraiser"id="example-text-input">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label for="example-text-input" class="col-12 col-md-3 col-form-label">Revenue</label>
+                                  <div class="col-12 col-md-9">
+                                      <input class="form-control border-top-0 border-left-0 border-right-0 rounded-0" type="text" placeholder="Revenue type: Market, User fees.."  #revenue="ngModel" [(ngModel)]="project.revenue" name="revenue" id="example-text-input">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label for="example-text-input" class="col-12 col-md-3 col-form-label">Business Model</label>
+                                  <div class="col-12 col-md-9">
+                                      <textarea class="form-control border-top-0 border-left-0 border-right-0 rounded-0" placeholder="Business Model / Economic rationale"
+                                      #businessmodel="ngModel" [(ngModel)]="project.business_model" name="business_model"></textarea>
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label for="example-text-input" class="col-12 col-md-3 col-form-label">Risks</label>
+                                  <div class="col-12 col-md-9">
+                                      <textarea class="form-control border-top-0 border-left-0 border-right-0 rounded-0" placeholder="Existing or potential bottlenecks / Potential risks"#risks="ngModel" [(ngModel)]="project.risks" name="risks" ></textarea>
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label for="example-text-input" class="col-12 col-md-3 col-form-label">Additional Information</label>
+                                  <div class="col-12 col-md-9">
+                                      <textarea class="form-control border-top-0 border-left-0 border-right-0 rounded-0" placeholder="Anything Else to add"
+                                      #addinfo="ngModel" [(ngModel)]="project.add_information" name="add_information" ></textarea>
+                                  </div>
+                              </div>
+
+                          </div>
+
+                      </div>
+
+                      
+                      <hr/>
+
+                      <div class="row p-4">
+
+                          <div class="col-12 col-sm-12"> 
+                            <button [disabled]="!projectForm.valid" type="submit" class="btn btn-danger">Submit Project</button>
+                            </div>
+                      </div>
+                  </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!--End Pricing -->

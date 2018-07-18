@@ -22,7 +22,7 @@
               Discover tomorrow's projects<span class="delay">, today.</span></h1>
               <img src="./assets/images/logoM.png" alt="" class="img-fluid" /> <br><br>
               <h2 class="introductionMessage__description">ESPRIT MARKET is a community of makers showcasing their projects and reaching investors.</h2>
-              <h4><a href="#" class="introductionMessage__cta btn btn-primary-outline btn-md lis-rounded-circle-50">
+              <h4><a routerLink="/projects" class="introductionMessage__cta btn btn-primary-outline btn-md lis-rounded-circle-50">
                   Discover</a></h4>
               </div>
               </div>
@@ -48,141 +48,43 @@
       <div class="col-12 col-md-10 text-center">
         <div class="heading pb-4">
           <h2>Featured Projects</h2>
-          <h5 class="font-weight-normal lis-light">Discover & connect with top-rated projects</h5>
+          <h5 class="font-weight-normal lis-light">Discover the top-rated projects</h5>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-4 wow fadeInUp mb-5 mb-lg-0">
-        <div class="card lis-brd-light">
-          <a href="listing-explore-property-profile.html">
-            <div class="modImage lis-grediant grediant-tb-light2 lis-relative rounded-top">
-              <img src="./assets/images/img9.jpg" alt="" class="img-fluid rounded-top w-100">
+
+        <div *ngFor="let project of projects | slice:0:3; let i=index" class="col-12 col-md-6 col-lg-4 wow fadeInUp mb-5 mb-lg-0">
+            <div class="card lis-brd-light wow fadeInUp text-center text-lg-left">
+                <div>
+                    <div class="lis-grediant grediant-tb-light2 lis-relative modImage lis-radius rounded-top"> <img src="./assets/images/img5.jpg" alt="" class="img-fluid rounded-top w-100" (click)="goTo(project._id)" /> </div>
+                    <div class="lis-absolute lis-right-20 lis-top-20">
+                        <div (click)="goTo(project._id)" class="lis-post-meta border border-white text-white rounded lis-f-14">Open</div>
+                    </div>
+                  </div>
+                <div class="card-body pt-0">
+                    <div class="media d-block d-lg-flex lis-relative"> <img src="./assets/images/card-logo5.png" alt="" class="lis-mt-minus-15 img-fluid d-lg-flex mx-auto mr-lg-3 mb-4 mb-lg-0 border lis-border-width-2 rounded-circle border-white" width="80" />
+                        <div class="media-body align-self-start mt-2">
+                            <h6 class="mb-0 lis-font-weight-600"><A href="#" (click)="goTo(project._id)" class="lis-dark">{{project.name}}</A></h6>
+                              <p>{{project.tagline}}</p>
+                          </div>
+                          
+                    </div>
+                    <ul class="list-unstyled my-4 lis-line-height-2">
+                        <li><i class="fa fa-list pr-2"></i>Category : {{project.category}}</li>
+                        <li><i class="fa fa-money pr-2"></i> Fundraiser: {{project.fundraiser | currency :'TND'}}</li>
+                    </ul>
+                    <div class="clearfix">
+                        <div class="float-none float-lg-left mb-3 mb-lg-0 mt-1">
+                            <a (click)="goTo(project._id)" class="lis-id-info lis-light p-2 lis-rounded-circle-50 lis-f-14">Click To See Full Description</a> </div>
+                        <div class="float-none float-lg-right mt-1">
+                            <A href="#" class="lis-light lis-f-14">Score </A>
+                            <A href="#" class="lis-green-light text-white p-2 lis-rounded-circle-50 lis-f-14"><i class="fa fa-star"></i> {{project.score.innovation + project.score.evolution + project.score.impexp}}</A> </div>
+                    </div>
+                </div>
             </div>
-            <div class="lis-absolute lis-right-20 lis-top-20">
-              <div class="lis-post-meta border border-white text-white rounded lis-f-14">For Sale</div>
-            </div>
-          </a>
-          <div class="card-body">
-            <h6 class="lis-font-weight-600 mb-2">
-              <a href="listing-explore-property-profile.html" class="lis-dark">Villa in Melbourne City</a>
-            </h6>
-            <ul class="list-unstyled mt-0">
-              <li>
-                <i class="fa fa-map-o pr-2"></i>1903 Hollywood, NJ 85624, USA</li>
-            </ul>
-            <div class="media pt-2">
-              <div class="d-flex">
-                <h5 class="lis-primary mb-0">
-                  <span class="lis-f-14 lis-dark">
-                    Fundraiser:</span> $13,80,000 </h5>
-              </div>
-              <div class="media-body align-self-center text-right">
-                <a href="#" class="lis-light lis-f-14">
-                  <i class="fa fa-heart-o lis-id-info  lis-rounded-circle-50 text-center"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="lis-devider"></div>
-          <ul class="list-inline mb-0 text-center lis-property-meta">
-            <li class="list-inline-item lis-brd-right lis-brd-light lis-meta-block float-left">
-              <i class="fa fa-object-group pr-1"></i> 5842 m2</li>
-            <li class="list-inline-item lis-brd-right lis-brd-light lis-meta-block float-left">
-              <i class="fa fa-bed pr-1"></i> 4 Bed</li>
-            <li class="list-inline-item lis-meta-block float-left">
-              <i class="fa fa-bath pr-1"></i> 3 Bath</li>
-          </ul>
         </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4 wow fadeInUp mb-5 mb-lg-0">
-        <div class="card lis-brd-light">
-          <a href="listing-explore-property-profile.html">
-            <div class="modImage lis-grediant grediant-tb-light2 lis-relative rounded-top">
-              <img src="./assets/images/img10.jpg" alt="" class="img-fluid rounded-top w-100">
-            </div>
-            <div class="lis-absolute lis-right-20 lis-top-20">
-              <div class="lis-post-meta border border-white text-white rounded lis-f-14">For Rent</div>
-            </div>
-          </a>
-          <div class="card-body">
-            <h6 class="lis-font-weight-600 mb-2">
-              <a href="listing-explore-property-profile.html" class="lis-dark">Family House in Omaha</a>
-            </h6>
-            <ul class="list-unstyled mt-0">
-              <li>
-                <i class="fa fa-map-o pr-2"></i>15421 Southwest, NJ 32568, USA</li>
-            </ul>
-            <div class="media pt-2">
-              <div class="d-flex">
-                <h5 class="lis-primary mb-0">
-                  <span class="lis-f-14 lis-dark">
-                    Fundraiser:</span> $2,500
-                  <small class="lis-light">/month</small>
-                </h5>
-              </div>
-              <div class="media-body align-self-center text-right">
-                <a href="#" class="lis-light lis-f-14">
-                  <i class="fa fa-heart-o lis-id-info  lis-rounded-circle-50 text-center"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="lis-devider"></div>
-          <ul class="list-inline mb-0 text-center lis-property-meta">
-            <li class="list-inline-item lis-brd-right lis-brd-light lis-meta-block float-left">
-              <i class="fa fa-object-group pr-1"></i> 2018 m2</li>
-            <li class="list-inline-item lis-brd-right lis-brd-light lis-meta-block float-left">
-              <i class="fa fa-bed pr-1"></i> 2 Bed</li>
-            <li class="list-inline-item lis-meta-block float-left">
-              <i class="fa fa-bath pr-1"></i> 1 Bath</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4 wow fadeInUp mb-5 mb-lg-0">
-        <div class="card lis-brd-light">
-          <a href="listing-explore-property-profile.html">
-            <div class="modImage lis-grediant grediant-tb-light2 lis-relative rounded-top">
-              <img src="./assets/images/img11.jpg" alt="" class="img-fluid rounded-top w-100">
-            </div>
-            <div class="lis-absolute lis-right-20 lis-top-20">
-              <div class="lis-post-meta border border-white text-white rounded lis-f-14">For Rent</div>
-            </div>
-          </a>
-          <div class="card-body">
-            <h6 class="lis-font-weight-600 mb-2">
-              <a href="listing-explore-property-profile.html" class="lis-dark">Park Avenue Apartment </a>
-            </h6>
-            <ul class="list-unstyled mt-0">
-              <li>
-                <i class="fa fa-map-o pr-2"></i>14228 Townshire Drive, NJ 06589, USA</li>
-            </ul>
-            <div class="media pt-2">
-              <div class="d-flex">
-                <h5 class="lis-primary mb-0">
-                  <span class="lis-f-14 lis-dark">
-                    Fundraiser:</span> $3,100
-                  <small class="lis-light">/month</small>
-                </h5>
-              </div>
-              <div class="media-body align-self-center text-right">
-                <a href="#" class="lis-light lis-f-14">
-                  <i class="fa fa-heart-o lis-id-info  lis-rounded-circle-50 text-center"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="lis-devider"></div>
-          <ul class="list-inline mb-0 text-center lis-property-meta">
-            <li class="list-inline-item lis-brd-right lis-brd-light lis-meta-block float-left">
-              <i class="fa fa-object-group pr-1"></i> 3258 m2</li>
-            <li class="list-inline-item lis-brd-right lis-brd-light lis-meta-block float-left">
-              <i class="fa fa-bed pr-1"></i> 4 Bed</li>
-            <li class="list-inline-item lis-meta-block float-left">
-              <i class="fa fa-bath pr-1"></i> 2 Bath</li>
-          </ul>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -235,7 +137,7 @@
           <div class="col-12 col-md-6 text-center wow fadeInUp">
             <div class="heading">
               <h2 class="text-uppercase lis-line-height-1_5 text-white">HAVE A PROJECT AND WOULD LIKE TO GET INVESTMENT?</h2>
-              <a href="add-listing.html" class="btn btn-outline-light btn-default text-uppercase">Add Your Project Here</a>
+              <a routerLink="/add-project" class="btn btn-outline-light btn-default text-uppercase">Add Your Project Here</a>
             </div>
           </div>
         </div>
@@ -268,7 +170,9 @@
             <i class="fa fa-address-card-o h1"></i>
           </div>
           <h5>Browse Categories</h5>
-          Maecs tempus, tellus eget rhoncus, sem condimentum quam semper libero.
+          Maecs tempus, tellus eget rhoncus, sem condimentum quam semper libero.<br>
+          <a routerLink="/categories" class="introductionMessage__cta btn btn-primary btn-md lis-rounded-circle-50">
+            Browse Categories</a>
         </div>
       </div>
       <div class="col-12 col-md-4 text-center wow fadeInUp mb-5 mb-md-0">
@@ -278,6 +182,8 @@
           </div>
           <h5>Choose Project</h5>
           Maecs tempus, tellus eget rhoncus, sem condimentum quam semper libero.
+          <a routerLink="/projects" class="introductionMessage__cta btn btn-primary btn-md lis-rounded-circle-50">
+            Browse Projects</a>
         </div>
       </div>
       <div class="col-12 col-md-4 text-center wow fadeInUp">
@@ -287,6 +193,8 @@
           </div>
           <h5>Invest and Partner</h5>
           Maecs tempus, tellus eget rhoncus, sem condimentum quam semper libero.
+          <a routerLink="/faq" class="introductionMessage__cta btn btn-primary btn-md lis-rounded-circle-50">
+            Learn More..</a>
         </div>
       </div>
     </div>

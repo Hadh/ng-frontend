@@ -81,6 +81,11 @@ export class UserService {
   loggedIn(){
     return tokenNotExpired('id_token');
   }
+  
+  getUser(){
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user;
+  }
 
   getUserProjects(){
     const user = JSON.parse(localStorage.getItem('user'));
@@ -89,8 +94,5 @@ export class UserService {
     return this.http.get(this.rootUrl2+user_id, {headers:headers} )
   }
 
-  getUser(){
-    const user = JSON.parse(localStorage.getItem('user'));
-    return user;
-  }
+
 }

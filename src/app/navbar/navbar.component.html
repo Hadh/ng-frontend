@@ -21,9 +21,9 @@
           <li class='headerNav__link'><a routerLink="projects"> Projects</a></li>
           <li class='headerNav__link'><a routerLink="contact">Contact</a></li>
           <li class='headerNav__link'><a routerLink="faq">FAQ</a></li>      
-
           </ul>
           <ul class='headerNav__end'>
+              <li *ngIf="userService.loggedIn()" class='headerNav__link headerNav__link--button'><a routerLink="add-project">Add a Project</a></li>
             <li *ngIf="userService.loggedIn()" class='headerNav__link headerNav__link--button'><a routerLink="profile">My Profile</a></li>
             <li *ngIf="userService.loggedIn()" class='headerNav__link headerNav__link--button'><a (click)="Logout()" routerLink="/">Logout</a></li>  
             <li *ngIf="!userService.loggedIn()" class='headerNav__link headerNav__link--button'><a routerLink="login">Login</a></li>
